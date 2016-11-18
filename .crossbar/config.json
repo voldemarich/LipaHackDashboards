@@ -47,12 +47,6 @@
                             "type": "websocket",
 			                "debug": true
                         }
-                    },
-                    "config": {
-                        "type": "json",
-                        "options": {
-                            "discourage_caching": "true",
-                        }
                     }
                 }
             ]
