@@ -29,3 +29,15 @@ function remove() {
 function update() {
   ws.publish('msg.' + document.getElementById('screen_id').value, [ 'update', document.getElementById('obj_id').value, document.getElementById('obj_content').value ]);
 }
+function img1() {
+  ws.publish('back.' + document.getElementById('screen_id').value, 'static/spreadsheet-hell.png');
+}
+function img2() {
+  ws.publish('back.' + document.getElementById('screen_id').value, 'static/slide4.jpg');
+}
+function img3() {
+  ws.publish('back.' + document.getElementById('screen_id').value, 'static/soydyot.jpg');
+}
+function imgnon() {
+  ws.publish('back.' + document.getElementById('screen_id').value, '');
+}
