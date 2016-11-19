@@ -41,17 +41,14 @@
                     "paths": {
                         "/": {
                             "type": "static",
-                            "directory": ".."
+                            "directory": "..",
+                            "options": {
+                                "cache_timeout": 0
+                            }
                         },
                         "ws": {
                             "type": "websocket",
 			                "debug": true
-                        }
-                    },
-                    "config": {
-                        "type": "json",
-                        "options": {
-                            "discourage_caching": "true",
                         }
                     }
                 }
