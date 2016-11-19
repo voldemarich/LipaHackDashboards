@@ -67,7 +67,7 @@ var send_alert = function (board) {
         form:"text",
         content:""
     };
-    html = "<div class='jumbotron' style='align-self: center; align-content: center; background-color: red'><h2>"+text+"</h1></div>";
+    html = "<div class='jumbotron' style='align-self: center; align-content: center; background-color: red'><h2>"+text+"</h2></div>";
     data.content = html;
     wp.publish("client.control", data);
 
