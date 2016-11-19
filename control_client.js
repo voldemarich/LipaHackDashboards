@@ -34,12 +34,12 @@ var send_text = function (board) {
     text = prompt("Put text here.");
     html = "<div class='jumbotron' style='align-self: center; alignment: center;'><h1 style='align-content: center'>"+text+"</h1></div>";
     wp.publish("client.control", [board, "text", html]);
+    $("#img_"+board).html(html);
 };
 
 var send_img = function (board) {
     board = board.data.boardnum;
-
-    alert("img")
+    //html = "<div class=''>"
 };
 
 var send_file = function (board) {
@@ -50,27 +50,24 @@ var send_file = function (board) {
 
 var send_blank = function (board) {
     board = board.data.boardnum;
-
+    wp.publish("client.control", [board, "text", ""]);
+    $("#img_"+board).html("");
 };
 
 var send_url = function (board) {
     board = board.data.boardnum;
-
-    alert("http:://")
+    text = prompt("Put url here.");
+    html = "<div class='thumbnail' style='align-self: center; alignment: center;'><iframe src=\"http://"+text+"\"/></h1></div>";
+    wp.publish("client.control", [board, "text", html]);
+    $("#img_"+board).html(html);
 };
 
 var send_alert = function (board) {
     board = board.data.boardnum;
     text = prompt("Put text here.");
-    var data = {
-        board:board,
-        form:"text",
-        content:""
-    };
-    html = "<div class='jumbotron' style='align-self: center; align-content: center; background-color: red'><h2>"+text+"</h1></div>";
-    data.content = html;
-    wp.publish("client.control", data);
-
+    html = "<div class='jumbotron' style='background-color: red; align-self: center; alignment: center;'><h1 style='align-content: center'>"+text+"</h1></div>";
+    wp.publish("client.control", [board, "text", html]);
+    $("#img_"+board).html(html);
 };
 
 
@@ -87,6 +84,7 @@ conf.forEach(function (x) {
     url= "url_"+ x.id;
     blank= "blank_"+ x.id;
     alrt= "alert_"+ x.id;
+    img_uid = "img_" + x.id
     
     $(row).loadTemplate($("#kek"),
         {
@@ -96,7 +94,8 @@ conf.forEach(function (x) {
             write_url: url,
             write_blank: blank,
             write_alert: alrt,
-            screen_img: "av.jpg"
+            img_id:img_uid,
+            screen_img: "c2s.jpg"
         },
         {append:true}
     );
