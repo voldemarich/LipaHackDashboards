@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     onReconnectSuccess: function () { status('bg-green'); }
   });
   data = { labels : ["1","2","3","4","5", "6", "7", "8", "9", "10"],
-        datasets : [ { backgroundColor: "rgba(0, 0, 0, 0)", borderColor: "rgba(220, 0, 0, 0.1)", data : [5,10,15,20,5,15,10,20,5,5] } ] };
+        datasets : [ { backgroundColor: "rgba(0, 0, 0, 0)", borderColor: "rgba(220, 0, 0, 0.9)", data : [5,10,15,20,5,15,10,20,5,5] } ] };
 chart = new Chart("chart", {
     type: 'line',
     data: data,
