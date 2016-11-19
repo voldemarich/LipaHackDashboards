@@ -2,7 +2,7 @@
  * Created by voldemarich on 19.11.2016.
  */
 
-conf = [
+var conf = [
     {
         screen_name: 'Kokoustila-1',
         id: 1
@@ -22,19 +22,20 @@ conf = [
 ];
 
 conf.forEach(function (x) {
-    row = "";
+    var row = "";
     if (x.id % 2 == 0){
         row = "#r2";
     }
     else row = "#r1";
+    alert(row+x.screen_name+x.id);
     $(row).loadTemplate("templates/screen_op_template.html",
         {
             screen_name: x.screen_name,
-            write_text: 'text_'+id,
-            write_file: 'file_'+id,
-            write_url: 'url_'+id,
-            write_blank: 'blank_'+id,
-            write_alert: 'alert_'+id,
+            write_text: 'text_'+ x.id,
+            write_file: 'file_'+ x.id,
+            write_url: 'url_'+ x.id,
+            write_blank: 'blank_'+ x.id,
+            write_alert: 'alert_'+ x.id,
             screen_img: 'av.jpg'
         }
     );
