@@ -14,7 +14,22 @@ function status(cl) {
 }
 function init() {
   ws.subscribe('screens.acknowledge', function (data) { ws.publish('screens.online', name); });
-  ws.subscribe('msg.' + name, function (data) { addmsg(data); });
+  ws.subscribe('msg.' + name, function (data) { whatdowedo(data); });
+}
+function add_obj(content) {
+  var box = document.getElementById('box');
+  box.innerHTML += "<div style='color: red;' id='" + content + "'>" + content + "</div>";
+}
+function remove_obj(id) {
+  var obj = document.getElementById(id);
+  obj.parentElement.removeChild(obj);
+}
+function whatdowedo(data) {
+  switch (data[0]) {
+    case 'add': add_obj(data[1]); break;
+    case 'remove': remove_obj(data[1]); break;
+    default: addmsg(data);
+  }
 }
 function addmsg(msg) {
   var box = document.getElementById('box');

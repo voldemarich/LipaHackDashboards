@@ -20,3 +20,9 @@ function addmsg(msg) {
   var box = document.getElementById('box');
   box.innerHTML += msg + "<br />";
 }
+function add() {
+  ws.publish('msg.' + document.getElementById('screen_id').value, [ 'add', document.getElementById('obj_id').value ]);
+}
+function remove() {
+  ws.publish('msg.' + document.getElementById('screen_id').value, [ 'remove', document.getElementById('obj_id').value ]);
+}
