@@ -16,6 +16,36 @@
 <body>
 
 <div class="container-fluid">
+    <script type="text/html" id="kek">
+        <div class="col-sm-6">
+            <div class="panel">
+                <nav class="navbar navbar-default">
+                    <div class="navbar-header">
+                        <a class="navbar-brand"  data-content="screen_name"></a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Change content<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a  data-id="write_text">Text</a></li>
+                                    <li><a  data-id="write_file">File</a></li>
+                                    <li><a  data-id="write_url">URL</a></li>
+                                </ul></li>
+                            <li><a  data-id="write_blank">Blank screen</a></li>
+                            <li><a  data-id="write_alert">Alert</a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="panel-body">
+                    <div class="thumbnail">
+                        <img data-src="screen_img"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </script>
+
     <div class="row" id="r1"></div>
 
     <div class="row" id="r2"></div>
