@@ -28,7 +28,7 @@ function remove_obj(id) {
 function update_obj(id, content) {
   var obj = document.getElementById(id);
   if (content === '') content = id;
-  obj.innerHTML == "<div id='" + id + "'>" + content + "</div>";
+  obj.innerHTML = "<div id='" + id + "'>" + content + "</div>";
 }
 function whatdowedo(data) {
   switch (data[0]) {
