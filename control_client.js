@@ -1,7 +1,10 @@
 /**
  * Created by voldemarich on 19.11.2016.
  */
+    
+var wp = new Wampy("ws://192.168.15.115:8080/ws", {realm:"AppRealm"});
 
+    
 var conf = [
     {
         screen_name: "Kokoustila-1",
@@ -28,7 +31,15 @@ var getBoardFromId = function(id){
 
 var send_text = function (board) {
     board = board.data.boardnum;
-console.log("text"+" "+board);
+    text = prompt("Put text here.");
+    var data = {
+        board:board,
+        form:"text",
+        content:""
+    };
+    html = "<div class='jumbotron' style='align-self: center; align-content: center;'><h2>"+text+"</h2></div>";
+    data.content = html;
+    wp.publish("client.control", data);
 };
 
 var send_img = function (board) {
@@ -56,7 +67,15 @@ var send_url = function (board) {
 
 var send_alert = function (board) {
     board = board.data.boardnum;
-
+    text = prompt("Put text here.");
+    var data = {
+        board:board,
+        form:"text",
+        content:""
+    };
+    html = "<div class='jumbotron' style='align-self: center; align-content: center; background-color: red'><h2>"+text+"</h2></div>";
+    data.content = html;
+    wp.publish("client.control", data);
 
 };
 
