@@ -38,6 +38,9 @@ function img2() {
 function img3() {
   ws.publish('back.' + document.getElementById('screen_id').value, 'static/soydyot.jpg');
 }
+function img4() {
+  ws.publish('back.' + document.getElementById('screen_id').value, 'static/sfake.png');
+}
 function imgnon() {
   ws.publish('back.' + document.getElementById('screen_id').value, '');
 }
