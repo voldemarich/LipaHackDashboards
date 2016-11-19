@@ -15,6 +15,9 @@ function status(cl) {
 function init() {
   ws.subscribe('screens.acknowledge', function (data) { ws.publish('screens.online', name); });
   ws.subscribe('msg.' + name, function (data) { whatdowedo(data); });
+  ws.subscribe('back.' + name, function (data) { document.getElementsByTagName('body')[0].style.backgroundImage = "url('" + data + "')"; });
+  ws.subscribe('upd.time', function (data) { document.getElementById('time').innerHTML = data; });
+  ws.subscribe('client.control', function (data) { upd(data); });
 }
 function add_obj(id, content) {
   var box = document.getElementById('box');
@@ -41,4 +44,10 @@ function whatdowedo(data) {
 function addmsg(msg) {
   var box = document.getElementById('box');
   box.innerHTML += msg + "<br />";
+}
+function upd(data) {
+  if (data[0] == 1 && data[1] === 'text') {
+    var box = document.getElementById('box');
+    box.innerHTML = data[2];
+  }
 }
