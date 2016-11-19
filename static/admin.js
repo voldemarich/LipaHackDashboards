@@ -21,8 +21,11 @@ function addmsg(msg) {
   box.innerHTML += msg + "<br />";
 }
 function add() {
-  ws.publish('msg.' + document.getElementById('screen_id').value, [ 'add', document.getElementById('obj_id').value ]);
+  ws.publish('msg.' + document.getElementById('screen_id').value, [ 'add', document.getElementById('obj_id').value, document.getElementById('obj_content').value ]);
 }
 function remove() {
   ws.publish('msg.' + document.getElementById('screen_id').value, [ 'remove', document.getElementById('obj_id').value ]);
+}
+function update() {
+  ws.publish('msg.' + document.getElementById('screen_id').value, [ 'update', document.getElementById('obj_id').value, document.getElementById('obj_content').value ]);
 }
