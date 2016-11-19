@@ -16,18 +16,25 @@ function init() {
   ws.subscribe('screens.acknowledge', function (data) { ws.publish('screens.online', name); });
   ws.subscribe('msg.' + name, function (data) { whatdowedo(data); });
 }
-function add_obj(content) {
+function add_obj(id, content) {
   var box = document.getElementById('box');
-  box.innerHTML += "<div style='color: red;' id='" + content + "'>" + content + "</div>";
+  if (content === '') content = id;
+  box.innerHTML += "<div id='" + id + "'>" + content + "</div>";
 }
 function remove_obj(id) {
   var obj = document.getElementById(id);
   obj.parentElement.removeChild(obj);
 }
+function update_obj(id, content) {
+  var obj = document.getElementById(id);
+  if (content === '') content = id;
+  obj.innerHTML == "<div id='" + id + "'>" + content + "</div>";
+}
 function whatdowedo(data) {
   switch (data[0]) {
-    case 'add': add_obj(data[1]); break;
+    case 'add': add_obj(data[1], data[2]); break;
     case 'remove': remove_obj(data[1]); break;
+    case 'update': update_obj(data[1], data[2]); break;
     default: addmsg(data);
   }
 }
