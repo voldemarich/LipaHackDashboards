@@ -22,7 +22,7 @@ function init() {
 function add_obj(id, content) {
   var box = document.getElementById('box');
   if (content === '') content = id;
-  box.innerHTML += "<div id='" + id + "'>" + content + "</div>";
+  box.innerHTML += "<div class='jumbotron' id='" + id + "'><h3>" + content + "</h3></div>";
 }
 function remove_obj(id) {
   var obj = document.getElementById(id);
@@ -31,7 +31,7 @@ function remove_obj(id) {
 function update_obj(id, content) {
   var obj = document.getElementById(id);
   if (content === '') content = id;
-  obj.innerHTML = "<div id='" + id + "'>" + content + "</div>";
+  obj.innerHTML = "<h2 class='red'>" + content + "</h2>";
 }
 function whatdowedo(data) {
   switch (data[0]) {
